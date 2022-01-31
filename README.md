@@ -4,14 +4,14 @@
 1. [General Info](#general-info)
 2. [Technologies](#technologies)
 3. [Installation](#installation)
-4. [Project Directory](#project-directory)
+4. [Project Create](#project-create)
 5. [DB Configuration](#db-configuration)
 6. [Controller](#controller)
 7. [Entity](#entity)
 8. [Relationships between Entities](#relationships-between-entities)
 9. [Template](#template)
 10. [Authenticating Users](#authenticating-users)
-11. [DoctrineFixturesBundle](#doctrine-fixtures-bundle)
+11. [Doctrine Fixtures Bundle](#doctrine-fixtures-bundle)
 12. [Writing Fixtures](#writing-fixtures)
 13. [Loading Fixtures](#loading-fixtures)
 14. [Paginating](#paginating)
@@ -50,21 +50,12 @@ Exemple de creation d'un blog demo  basé sur le tutoriel de [Nouvelle Techno](h
 * php bin/console make:entity
 
 # Relationships between Entities
-Entity   |Type Relation | Entity          | Description
-
+Entity   |Type Relation | Entity | Description
 ------------- |:------------- |:----------- |:-----------
-
-`ARTICLE`       | `ManyToOne`        | `USER` | `Each Article can relate to (can have) one User object.
-               Each User can also relate to (can also have) many Articles objects.`
-
-`ARTICLE`        |  `OneToMany`     |  `COMMENTAIRE` |  `Each Article can relate to (can have) many Commentaires objects.
-               Each Commentaire can also relate to (can also have) one Article object.` 
-
-`ARTICLE`       | `ManyToMany`   | `MOTS_CLE`| `Each Article can relate to (can have) many Commentaires objects.
-               Each Commentaire can also relate to (can also have) many Articles objects.`
-
-`ARTICLE`        | `ManyToMany`  | `CATEGORIE`| `Each Article can relate to (can have) many Categories objects.
-               Each Categorie can also relate to (can also have) many Articles objects.`
+`ARTICLE`       | `ManyToOne`        | `USER` | `Each Article can relate to (can have) one User object. Each User can also relate to (can also have) many Articles objects.`
+`ARTICLE`        |  `OneToMany`     |  `COMMENTAIRE` |  `Each Article can relate to (can have) many Commentaires objects. Each Commentaire can also relate to (can also have) one Article object.`| 
+`ARTICLE`       | `ManyToMany`   | `MOTS_CLE`| `Each Article can relate to (can have) many Commentaires objects. Each Commentaire can also relate to (can also have) many Articles objects.`|
+`ARTICLE`        | `ManyToMany`  | `CATEGORIE`| `Each Article can relate to (can have) many Categories objects. Each Categorie can also relate to (can also have) many Articles objects.`|
 
 >Exemple de creation relation entre Article et Commentaire :
 ```php
@@ -166,7 +157,7 @@ Commentaire objects.
 # Authenticating Users
 * php bin/console make:auth
 
-# DoctrineFixturesBundle
+# Doctrine Fixtures Bundle
 >Les "fixtures" sont utilisés pour charger un « fake » ensemble de données dans une base de données qui peut ensuite être utilisée pour tester ou pour vous aider à obtenir des données intéressantes pendant que vous développez votre application.
 
 >Installation:
