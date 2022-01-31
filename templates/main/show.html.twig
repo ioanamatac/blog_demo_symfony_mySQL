@@ -1,0 +1,27 @@
+    {% extends 'base.html.twig' %}
+    {% block title %} SymBlog {% endblock %}
+    {% block body %}
+        <div class="container">
+            <section>
+                <article >                                      
+                <!-- Card Regular -->
+                <div class="card card-cascade mt-2">
+                   <!-- Card content -->
+                    <div class="card-body card-body-cascade">
+                    <!-- Title -->
+                    <h4 class="card-title"><strong>{{ article.titre }}</strong></h4>
+                    <!-- Subtitle -->                     
+                    <h6 class="font-weight-bold indigo-text py-2">{{ article.slug }}</h6>
+                    <!-- Text -->
+                    <p class="card-text">Ecrit le {{ article.createdAt| date('d/m/Y') }} à {{ article.createdAt | date('H:i') }} </p>
+                    <p class="card-content"><i class="fas fa-quote-left pe-2"></i> {{ article.contenu }}</p>
+                     {% for commentaire in article.commentaire %}
+                            <p class="card-text"><i>Commentaire</i> écrit le {{ commentaire.createdAt| date('d/m/y') }} à {{ commentaire.createdAt| date('H:i')}} par <i class="fas fa-user-ninja vanished"></i>{{ commentaire.pseudo }}:</p>                                    
+                            <p class="card-content"> {{ commentaire.contenu }}
+                     {% endfor %}
+                    <div><a href="{{ path('main', {'id': article.id }) }}" class="btn btn-dark">Go back</a></div>                                                        
+                    </div>                                                               
+                </article>                        
+            </section>        
+        </div>
+    {% endblock %}

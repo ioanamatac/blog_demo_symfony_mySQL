@@ -1,0 +1,7 @@
+#index:
+#    path: /
+#    controller: App\Controller\MainController::index
+new:
+    path: /main/new
+    controller: App\Controller\MainController::new
+    methods:    GET |POST
